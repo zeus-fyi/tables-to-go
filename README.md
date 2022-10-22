@@ -1,5 +1,6 @@
 # Tables-to-Go
-> convert your database tables to structs easily
+> convert your database tables to structs easily, and now usd the pkg/table_formatting to export
+> useful conversions into projects that are anti-cli and pro api
 
 A small and convenient tool supporting development against a changing 
 database schema.
@@ -13,7 +14,7 @@ database schema.
 
 ## Requirements
 
-- Go 1.18+
+- Go 1.19
 
 ## Install
 

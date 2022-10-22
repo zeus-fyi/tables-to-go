@@ -3,12 +3,12 @@ package cli
 import (
 	"testing"
 
-	"github.com/fraenky8/tables-to-go/pkg/table_formatting"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
+	"github.com/zeus-fyi/tables-to-go/pkg/table_formatting"
 
-	"github.com/fraenky8/tables-to-go/pkg/database"
-	"github.com/fraenky8/tables-to-go/pkg/settings"
+	"github.com/zeus-fyi/tables-to-go/pkg/database"
+	"github.com/zeus-fyi/tables-to-go/pkg/settings"
 )
 
 type mockDb struct {

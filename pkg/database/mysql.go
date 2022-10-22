@@ -4,10 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/fraenky8/tables-to-go/pkg/settings"
-
 	// MySQL database driver
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/zeus-fyi/tables-to-go/pkg/settings"
 )
 
 // MySQL implements the Database interface with help of GeneralDatabase.

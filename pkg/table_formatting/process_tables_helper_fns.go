@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/fraenky8/tables-to-go/pkg/database"
-	"github.com/fraenky8/tables-to-go/pkg/settings"
+	"github.com/zeus-fyi/tables-to-go/pkg/database"
+	"github.com/zeus-fyi/tables-to-go/pkg/settings"
+	"github.com/zeus-fyi/tables-to-go/pkg/tagger"
 )
 
 func CreateTableStructString(settings *settings.Settings, db database.Database, table *database.Table) (string, string, error) {
-
 	var structFields strings.Builder
 	tableName := Caser.String(settings.Prefix + table.Name + settings.Suffix)
 	// Replace any whitespace with underscores
@@ -17,6 +17,8 @@ func CreateTableStructString(settings *settings.Settings, db database.Database, 
 	if settings.IsOutputFormatCamelCase() {
 		tableName = CamelCaseString(tableName)
 	}
+
+	tagger := tagger.NewTaggers(settings)
 
 	// Check that the table name doesn't contain any invalid characters for Go variables
 	if !ValidVariableName(tableName) {
@@ -59,7 +61,7 @@ func CreateTableStructString(settings *settings.Settings, db database.Database, 
 		structFields.WriteString(" ")
 		structFields.WriteString(columnType)
 		structFields.WriteString(" ")
-		structFields.WriteString(Taggers.GenerateTag(db, column))
+		structFields.WriteString(tagger.GenerateTag(db, column))
 		structFields.WriteString("\n")
 	}
 

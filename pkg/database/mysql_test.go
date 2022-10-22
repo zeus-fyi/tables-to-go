@@ -4,8 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
-	"github.com/fraenky8/tables-to-go/pkg/settings"
+	"github.com/zeus-fyi/tables-to-go/pkg/settings"
 )
 
 func TestMySQL_DSN(t *testing.T) {

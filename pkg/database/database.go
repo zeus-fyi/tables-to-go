@@ -5,8 +5,7 @@ import (
 	"fmt"
 
 	"github.com/jmoiron/sqlx"
-
-	"github.com/fraenky8/tables-to-go/pkg/settings"
+	"github.com/zeus-fyi/tables-to-go/pkg/settings"
 )
 
 var (

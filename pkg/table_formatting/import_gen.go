@@ -3,7 +3,7 @@ package table_formatting
 import (
 	"strings"
 
-	"github.com/fraenky8/tables-to-go/pkg/settings"
+	"github.com/zeus-fyi/tables-to-go/pkg/settings"
 )
 
 func GenerateImports(content *strings.Builder, settings *settings.Settings, columnInfo ColumnInfo) {

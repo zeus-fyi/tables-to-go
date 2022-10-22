@@ -1,4 +1,4 @@
-module github.com/fraenky8/tables-to-go
+module github.com/zeus-fyi/tables-to-go
 
 go 1.19
 

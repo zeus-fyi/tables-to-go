@@ -4,8 +4,8 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/fraenky8/tables-to-go/pkg/settings"
-	"github.com/fraenky8/tables-to-go/pkg/tagger"
+	"github.com/zeus-fyi/tables-to-go/pkg/settings"
+	"github.com/zeus-fyi/tables-to-go/pkg/tagger"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )

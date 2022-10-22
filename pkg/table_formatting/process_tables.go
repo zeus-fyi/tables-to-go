@@ -3,8 +3,8 @@ package table_formatting
 import (
 	"fmt"
 
-	"github.com/fraenky8/tables-to-go/pkg/database"
-	"github.com/fraenky8/tables-to-go/pkg/settings"
+	"github.com/zeus-fyi/tables-to-go/pkg/database"
+	"github.com/zeus-fyi/tables-to-go/pkg/settings"
 )
 
 func ProcessTables(db database.Database, settings *settings.Settings, tables ...*database.Table) (map[string]string, error) {
