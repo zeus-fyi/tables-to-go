@@ -21,6 +21,15 @@ func NewTableContentMap() TableContentMap {
 
 func (t *TableContentMap) ProcessTables(db database.Database, settings *settings.Settings, tables ...*database.Table) error {
 	tableContent := NewTableContentMap()
+
+	if settings.Verbose {
+		fmt.Printf("> number of tables: %v\r\n", len(tables))
+	}
+
+	if err := db.PrepareGetColumnsOfTableStmt(); err != nil {
+		return fmt.Errorf("could not prepare the get-column-statement: %w", err)
+	}
+
 	for _, table := range tables {
 		tableContent.TableMap[table.Name] = table
 		if settings.Verbose {
