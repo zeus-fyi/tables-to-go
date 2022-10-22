@@ -9,14 +9,19 @@ import (
 	"github.com/zeus-fyi/tables-to-go/pkg/tagger"
 )
 
-func CreateTableStructString(settings *settings.Settings, db database.Database, table *database.Table) (string, string, error) {
-	var structFields strings.Builder
+func FormatTableName(settings *settings.Settings, table *database.Table) string {
 	tableName := Caser.String(settings.Prefix + table.Name + settings.Suffix)
 	// Replace any whitespace with underscores
 	tableName = strings.Map(ReplaceSpace, tableName)
 	if settings.IsOutputFormatCamelCase() {
 		tableName = CamelCaseString(tableName)
 	}
+	return tableName
+}
+
+func CreateTableStructString(settings *settings.Settings, db database.Database, table *database.Table) (string, string, error) {
+	var structFields strings.Builder
+	tableName := FormatTableName(settings, table)
 
 	tagger := tagger.NewTaggers(settings)
 
