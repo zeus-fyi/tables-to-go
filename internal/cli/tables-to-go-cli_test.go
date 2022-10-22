@@ -3,6 +3,7 @@ package cli
 import (
 	"testing"
 
+	"github.com/fraenky8/tables-to-go/pkg/table_formatting"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
@@ -83,7 +84,7 @@ func TestCamelCaseString(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.desc, func(t *testing.T) {
-			actual := camelCaseString(tt.input)
+			actual := table_formatting.CamelCaseString(tt.input)
 			assert.Equal(t, tt.expected, actual, "test case input: "+tt.input)
 		})
 	}
@@ -138,7 +139,7 @@ func TestToInitialisms(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.desc, func(t *testing.T) {
-			actual := toInitialisms(tt.input)
+			actual := table_formatting.ToInitialisms(tt.input)
 			assert.Equal(t, tt.expected, actual, "test case input: "+tt.input)
 		})
 	}
@@ -1939,7 +1940,7 @@ func TestValidVariableName(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			if validVariableName(tc.input) != tc.expected {
+			if table_formatting.ValidVariableName(tc.input) != tc.expected {
 				t.Errorf("TestValidVariableName(%q) should be %t", tc.input, tc.expected)
 			}
 		})
@@ -1965,9 +1966,9 @@ func TestReplaceSpace(t *testing.T) {
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
-			output := replaceSpace(tc.input)
+			output := table_formatting.ReplaceSpace(tc.input)
 			if output != tc.expected {
-				t.Errorf("replaceSpace(%q) = %q, expected %q", tc.input, output, tc.expected)
+				t.Errorf("ReplaceSpace(%q) = %q, expected %q", tc.input, output, tc.expected)
 			}
 		})
 	}
@@ -1998,7 +1999,7 @@ func TestFormatColumnName(t *testing.T) {
 		t.Run("camelcase", func(t *testing.T) {
 			for _, tc := range tests {
 				t.Run(tc.name, func(t *testing.T) {
-					output, err := formatColumnName(camelSettings, tc.input, "MyTable")
+					output, err := table_formatting.FormatColumnName(camelSettings, tc.input, "MyTable")
 					if err != nil {
 						t.Error(err)
 					} else if output != tc.camel {
@@ -2013,7 +2014,7 @@ func TestFormatColumnName(t *testing.T) {
 		t.Run("original", func(t *testing.T) {
 			for _, tc := range tests {
 				t.Run(tc.name, func(t *testing.T) {
-					output, err := formatColumnName(originalSettings, tc.input, "MyTable")
+					output, err := table_formatting.FormatColumnName(originalSettings, tc.input, "MyTable")
 					if err != nil {
 						t.Error(err)
 					} else if output != tc.original {
@@ -2036,9 +2037,9 @@ func TestFormatColumnName(t *testing.T) {
 		s := settings.New()
 		for _, tc := range tests {
 			t.Run(tc.name, func(t *testing.T) {
-				_, err := formatColumnName(s, tc.input, "MyTable")
+				_, err := table_formatting.FormatColumnName(s, tc.input, "MyTable")
 				if err == nil {
-					t.Errorf("formatColumnName(%q) should have thrown error but didn't", tc.input)
+					t.Errorf("FormatColumnName(%q) should have thrown error but didn't", tc.input)
 				}
 			})
 		}
