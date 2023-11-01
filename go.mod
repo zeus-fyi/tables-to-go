@@ -8,8 +8,8 @@ require (
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/lib/pq v1.10.6
 	github.com/mattn/go-sqlite3 v1.14.14
-	github.com/stretchr/testify v1.8.2
-	golang.org/x/text v0.9.0
+	github.com/stretchr/testify v1.8.3
+	golang.org/x/text v0.13.0
 )
 
 require (
